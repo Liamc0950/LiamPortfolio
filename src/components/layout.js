@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import base from './base.css'
 import Container from './container'
 import Navigation from './navigation'
+import get from 'lodash/get'
 
 class Template extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Navigation />
+        <Navigation/>
         {children}
       </Container>
     )
