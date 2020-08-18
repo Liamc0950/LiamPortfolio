@@ -1,31 +1,135 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default ({ data }) => (
-  <Navbar className="navbar" bg="dark" expand="lg" variant="dark fixed-top">
-    <Navbar.Brand href="#home">{data.name}</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4"> Separated link </NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-)
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Button,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
+
+export default class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+  render() {
+    return <div>
+        <Navbar dark className={styles.Navigation}>
+          <NavbarBrand to="/" className="mr-auto">
+            <h1>{this.props.data.name}</h1>
+            <h5>{this.props.data.title}</h5>
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav className={styles.Navigation}navbar>
+              <UncontrolledDropdown nav inNavbar className={styles.Dropdown}>
+                <DropdownToggle nav caret>
+                LIGHTING DESIGN
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem dropdown-item>
+                    Option 1  
+                  </DropdownItem>
+                  <DropdownItem className={styles.Dropdown}>
+                    Option 2
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <NavItem>
+                <Link to="/" className={styles.NavItem}>
+                    RESUME
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/" className={styles.NavItem}>
+                    CONTACT
+                </Link>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>;
+  }
+}
+
+//export default Example;
 
 
-{/* <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+/* class Navigation extends React.Component {
+
+  render() { 
+    const Example = (props) => {
+      const [isOpen, setIsOpen] = useState(false);
+    
+      const toggle = () => setIsOpen(!isOpen);
+    
+      return (
+      
+      <Navbar className="navbar" bg="dark" expand="lg" variant="dark fixed-top">
+      <Navbar.Brand href="#home"><h1>{data.name}</h1><h5>{data.title}</h5></Navbar.Brand>
+      <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto">
+            <Nav.Link href="#portfolio">PORTFOLIO</Nav.Link>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+              LIGHTING DESIGN
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Option 1
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+              SCENIC DESIGN
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Option 1
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <Nav.Link href="#link">RESUME</Nav.Link>
+            <Nav.Link href="#link">CONTACT</Nav.Link>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    )
+    }
+  }
+}
+export default Navigation
+ */
+
+/* <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <a class="navbar-brand col-md-9" href="\#"><h1 class="text-white">LIAM CORLEY</h1><h5 class = "text-white"> LIGHTING DESIGNER </h3></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,4 +158,18 @@ export default ({ data }) => (
       </ul>
     </div>
 </nav>
- */}
+
+          <div className="wrapper">
+            <h2 className="section-headline">Recent articles</h2>
+            <ul className="article-list">
+              {posts.map(({ node }) => {
+                return (
+                  <li key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+
+ */

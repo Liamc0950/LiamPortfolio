@@ -1,12 +1,16 @@
-.navigation {
+.Navigation {
   display: flex;
   justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 20vh;
-  max-height: 100px;
+  width: 100%;
   font-size: 1.25em;
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  background-color: rgba(0,0,0,1);
 }
 
 .navigationItem {
@@ -17,4 +21,23 @@
 
 .navigationItem a {
   color: currentColor;
+}
+
+.dropdown-item {
+  background-color:rgba(0,0,0,0.5);
+  color:white;
+}
+.dropdown-menu{
+  padding-top: 0%;
+  padding-bottom: 0%;
+  background-color:rgba(0,0,0,0.5);
+}
+
+.NavItem {
+  color:white;
+}
+
+.Dropdown{
+  background-color:rgba(0,0,0,0.5);
+  color:white;
 }
