@@ -34,7 +34,7 @@ export default class Navigation extends React.Component {
   }
   render() {
     return <div>
-        <Navbar dark className={styles.Navigation}>
+        <Navbar dark fixed="top" className={styles.Navigation}>
           <NavbarBrand to="/" className="mr-auto">
             <h1>{this.props.data.name}</h1>
             <h5>{this.props.data.title}</h5>
@@ -47,12 +47,13 @@ export default class Navigation extends React.Component {
                 LIGHTING DESIGN
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem dropdown-item>
-                    Option 1  
-                  </DropdownItem>
-                  <DropdownItem className={styles.Dropdown}>
-                    Option 2
-                  </DropdownItem>
+                  {this.props.shows.map(({ node }) => {
+                  return (
+                    <DropdownItem dropdown-item>
+                      {node.title}
+                    </DropdownItem>
+                  )
+                  })}
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
