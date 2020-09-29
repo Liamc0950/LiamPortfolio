@@ -15,23 +15,20 @@ import styles from './index.module.css'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const shows = get(this, 'props.data.allContentfulShow.edges')
 
-    console.log(shows);
-    console.log(shows[0].node.coverImage);
     const items = [];
     //create list of carousel items
     for (var i=0; i<shows.length; i++){
       items.push(
-      {
-        src: shows[i].node.coverImage.fluid.src,
-        altText: shows[i].title,
-        caption: shows[i].title,
-        header: shows[i].title,
-        key: i
-      }
+        {
+          src: shows[i].node.coverImage.fluid.src,
+          altText: shows[i].node.title,
+          caption: shows[i].node.discipline.toUpperCase(),
+          header: shows[i].node.title.toUpperCase(),
+          key: i
+        }
       )
     }    
 
@@ -54,26 +51,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
       }
     }
     allContentfulPerson(
@@ -105,9 +82,7 @@ export const pageQuery = graphql`
           title
           showCredits
           createdAt
-          showDescription {
-            id
-          }
+          discipline
           coverImage {
             file {
               url

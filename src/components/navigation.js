@@ -35,10 +35,12 @@ export default class Navigation extends React.Component {
   render() {
     return <div>
         <Navbar dark fixed="top" className={styles.Navigation}>
-          <NavbarBrand to="/" className="mr-auto">
-            <h1>{this.props.data.name}</h1>
-            <h5>{this.props.data.title}</h5>
-          </NavbarBrand>
+          <Link to="/">
+            <NavbarBrand to="/" className="mr-auto">
+              <h1>{this.props.data.name}</h1>
+              <h5>{this.props.data.title}</h5>
+            </NavbarBrand>
+          </Link>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav className={styles.Navigation}navbar>
@@ -48,21 +50,23 @@ export default class Navigation extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   {this.props.shows.map(({ node }) => {
+                  const link = "/shows/" + node.title;
+                  console.log(link)
                   return (
                     <DropdownItem dropdown-item>
-                      {node.title}
+                      <Link to={link}>{node.title}</Link>
                     </DropdownItem>
                   )
                   })}
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <Link to="/" className={styles.NavItem}>
+                <Link to="/resume" className={styles.NavItem}>
                     RESUME
                 </Link>
               </NavItem>
               <NavItem>
-                <Link to="/" className={styles.NavItem}>
+                <Link to="/contact" className={styles.NavItem}>
                     CONTACT
                 </Link>
               </NavItem>
