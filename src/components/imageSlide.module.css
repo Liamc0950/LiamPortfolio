@@ -1,0 +1,32 @@
+.captions{
+    color:white;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: baseline;
+    font-size: 3vh;
+}
+
+.spacerTop{
+    height: 80%;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.showTitle{
+    font-size: 3vh;
+}
+.captionLink{
+    color:white;
+}
+
+
+.showPosition{
+    font-size: 2vh;
+}

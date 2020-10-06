@@ -11,6 +11,8 @@ import { UncontrolledCarousel } from 'reactstrap';
 import '../components/base.css';
 import { sortBy } from 'lodash'
 import styles from './index.module.css'
+import Slider from '../components/Slider'
+import ImageSlide from '../components/ImageSlide';
 
 class RootIndex extends React.Component {
   render() {
@@ -19,25 +21,23 @@ class RootIndex extends React.Component {
     const shows = get(this, 'props.data.allContentfulShow.edges')
 
     const items = [];
-    //create list of carousel items
+    //create list of carousel ImageSlides
     for (var i=0; i<shows.length; i++){
-      items.push(
-        {
-          src: shows[i].node.coverImage.fluid.src,
-          altText: shows[i].node.title,
-          caption: shows[i].node.discipline.toUpperCase(),
-          header: shows[i].node.title.toUpperCase(),
-          key: i
-        }
-      )
-    }    
+      items.push(<ImageSlide 
+                    src={shows[i].node.coverImage.fluid.src} 
+                    title={shows[i].node.title} 
+                    position={shows[i].node.discipline}>
+                  </ImageSlide>
+                )
+    }
 
     return (
       <Layout location={this.props.location}>
         <Navigation fixed="top" data={author.node} shows={shows}/>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <UncontrolledCarousel className={styles.carousel} items={items} />
+          {/* <UncontrolledCarousel className={styles.carousel} items={items} /> */}
+          <Slider items={items}></Slider>
         </div>
       </Layout>
     )

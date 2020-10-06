@@ -6,8 +6,10 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
+import Slider from '../components/Slider'
+import ImageSlide from '../components/ImageSlide';
 
-// import styles from '../components/show-page.module.css'
+import styles from '../templates/show-page.module.css'
 import heroStyles from '../components/hero.module.css'
 
 class ShowPageTemplate extends React.Component {
@@ -18,31 +20,31 @@ class ShowPageTemplate extends React.Component {
 
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const images = show.images;
-    console.log(images)
-    //const items = [];
-    //create list of carousel items
-    // for (var i=0; i<images.length; i++){
-    //   items.push(
-    //     {
-    //       src: images[i].fluid.src,
-    //       altText: images[i].node.title,
-    //       caption: images[i].node.title.toUpperCase(),
-    //       header: images[i].node.title.toUpperCase(),
-    //       key: i
-    //     }
-    //   )
-    // }    
+
+    const items = [];
+    //create list of carousel ImageSlides
+    for (var i=0; i<images; i++){
+      items.push(<ImageSlide 
+                    src={images[i].fluid.src} 
+                    title="Text" 
+                    position="Text 2">
+                  </ImageSlide>
+                )
+    }
 
     return (
       <Layout location={this.props.location}>
         <Navigation fixed="top" data={author.node} shows={shows}/>
-        <div style={{ background: '#fff' }}>
+        <div className={styles.pane}>
           <Helmet title={siteTitle} />
-          {/* <UncontrolledCarousel className={styles.carousel} items={items} /> */}
-          <div>{show.title}</div>
-          <div>{show.showCredits}</div>
-          <div>{show.description.description}</div>
-          <div></div>
+          <div className={styles.sliderPane}>
+            <Slider items={items}></Slider>
+          </div>
+          <div className={styles.showInfoPane}>
+            <div>{show.title}</div>
+            <div>{show.showCredits}</div>
+            <div>{show.description.description}</div>
+          </div>
         </div>
       </Layout>
     )

@@ -1,10 +1,14 @@
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 12.5em;
-  background: #e1e1e1;
-  margin: -1em -2.5em 1em;
-  font-size: 2em
+.sliderPane{
+  height: 60vh;
+}
+.showInfoPane{
+  color: white;
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5vh;
+}
+.pane{
+  background-color: black;
+  height: 100vh;
 }
