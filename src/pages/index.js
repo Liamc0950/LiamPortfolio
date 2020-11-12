@@ -24,7 +24,7 @@ class RootIndex extends React.Component {
     //create list of carousel ImageSlides
     for (var i=0; i<shows.length; i++){
       items.push(<ImageSlide 
-                    src={shows[i].node.coverImage.fluid.src} 
+                    src={shows[i].node.coverImage.file.url} 
                     title={shows[i].node.title} 
                     position={shows[i].node.discipline}>
                   </ImageSlide>
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
             file {
               url
             }
-            fluid {
+            fluid(resizingBehavior: PAD) {
               src
             }  
           }

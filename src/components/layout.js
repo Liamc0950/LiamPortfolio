@@ -4,6 +4,7 @@ import './base.css'
 import Container from './container'
 import Navigation from './navigation'
 import get from 'lodash/get'
+import Footer from './footer'
 
 class Template extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class Template extends React.Component {
     return (
       <Container>
         {children}
+        <Footer></Footer>
       </Container>
     )
   }

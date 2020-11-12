@@ -8,9 +8,9 @@ import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
 import Slider from '../components/Slider'
 import ImageSlide from '../components/ImageSlide';
+import Gallery from 'react-grid-gallery';
 
 import styles from '../templates/show-page.module.css'
-import heroStyles from '../components/hero.module.css'
 
 class ShowPageTemplate extends React.Component {
   render() {
@@ -20,29 +20,38 @@ class ShowPageTemplate extends React.Component {
 
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const images = show.images;
+    console.log(images)
 
     const items = [];
     //create list of carousel ImageSlides
-    for (var i=0; i<images; i++){
-      items.push(<ImageSlide 
-                    src={images[i].fluid.src} 
-                    title="Text" 
-                    position="Text 2">
-                  </ImageSlide>
+    for (var i=0; i<images.length; i++){
+      items.push(
+                  {
+                    src: images[i].file.url,
+                    thumbnail: images[i].file.url,
+                    thumbnailWidth: images[i].resolutions.width / 10,
+                    thumbnailHeight: images[i].resolutions.height / 10,
+                    isSelected: false,
+                    caption: images[i].title
+                  }
                 )
     }
-
+    console.log(show.showCredits);
     return (
       <Layout location={this.props.location}>
         <Navigation fixed="top" data={author.node} shows={shows}/>
         <div className={styles.pane}>
           <Helmet title={siteTitle} />
           <div className={styles.sliderPane}>
-            <Slider items={items}></Slider>
+            <Gallery images={items}/>
           </div>
           <div className={styles.showInfoPane}>
-            <div>{show.title}</div>
-            <div>{show.showCredits}</div>
+            <h1>{show.title}</h1>
+            <div>
+              {show.showCredits.map(num => (
+                <div>{num}</div>
+              ))}
+            </div>
             <div>{show.description.description}</div>
           </div>
         </div>
@@ -62,6 +71,18 @@ export const pageQuery = graphql`
     }
     contentfulShow(title: { eq: $title }) {
       title
+      images {
+        title
+        description
+        file {
+          url
+        }
+        resolutions {
+          height
+          width
+        }
+
+      }
       coverImage {
         file {
           url

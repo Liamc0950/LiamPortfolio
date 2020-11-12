@@ -1,12 +1,16 @@
 .sliderPane{
   height: 60vh;
+  padding-top: 15vh;
 }
 .showInfoPane{
   color: white;
   text-align: center;
   padding-left: 10%;
   padding-right: 10%;
-  padding-top: 5vh;
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  height: auto;
+  background-color: black;
 }
 .pane{
   background-color: black;

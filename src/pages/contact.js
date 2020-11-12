@@ -6,9 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
-
-// import styles from '../components/show-page.module.css'
-import heroStyles from '../components/hero.module.css'
+import styles from '../pages/contact.module.css'
 
 class Contact extends React.Component {
   render() {
@@ -16,27 +14,13 @@ class Contact extends React.Component {
     const shows = get(this, 'props.data.allContentfulShow.edges')
 
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    //const items = [];
-    //create list of carousel items
-    // for (var i=0; i<images.length; i++){
-    //   items.push(
-    //     {
-    //       src: images[i].fluid.src,
-    //       altText: images[i].node.title,
-    //       caption: images[i].node.title.toUpperCase(),
-    //       header: images[i].node.title.toUpperCase(),
-    //       key: i
-    //     }
-    //   )
-    // }    
 
     return (
       <Layout location={this.props.location}>
         <Navigation fixed="top" data={author.node} shows={shows}/>
-        <div style={{ background: '#fff' }}>
+        <div className={styles.contact}>
           <Helmet title={siteTitle} />
-          <div>{author.name}</div>
-          <div></div>
+          <div>Contact me at Liam.P.Corley@sewanee.edu</div>
         </div>
       </Layout>
     )

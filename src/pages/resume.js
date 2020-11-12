@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
@@ -6,44 +6,42 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
+import { Document, Page } from 'react-pdf';
 
-// import styles from '../components/show-page.module.css'
-import heroStyles from '../components/hero.module.css'
+import styles from '../pages/resume.module.css'
 
-class Resume extends React.Component {
+export default class Resume extends React.Component {
   render() {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const shows = get(this, 'props.data.allContentfulShow.edges')
 
+    //pdf setup
+    // const [numPages, setNumPages] = useState(null);
+    // const [pageNumber, setPageNumber] = useState(1);
+   
+    function onDocumentLoadSuccess({ numPages }) {
+      setNumPages(numPages);
+    }
+  
+
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    //const items = [];
-    //create list of carousel items
-    // for (var i=0; i<images.length; i++){
-    //   items.push(
-    //     {
-    //       src: images[i].fluid.src,
-    //       altText: images[i].node.title,
-    //       caption: images[i].node.title.toUpperCase(),
-    //       header: images[i].node.title.toUpperCase(),
-    //       key: i
-    //     }
-    //   )
-    // }    
 
     return (
       <Layout location={this.props.location}>
         <Navigation fixed="top" data={author.node} shows={shows}/>
-        <div style={{ background: '#fff' }}>
+        <div className={styles.resume}>
           <Helmet title={siteTitle} />
-          <div>{author.name}</div>
-          <div></div>
+          <Document
+            file={author.node.resume}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
+          </Document>
         </div>
       </Layout>
     )
   }
 }
 
-export default Resume
 
 export const pageQuery = graphql`
   query Resume {
@@ -57,10 +55,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          name
-          shortBio {
-            shortBio
+          resume {
+            file {
+              url
+            }
           }
+          name
           title
         }
       }
