@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
     var style = {
         color: 'white',
         textAlign: 'center',
-        fontSize: '1.5vw',
+        fontSize: '0.7vw',
         paddingTop: '2.5vh',
         paddingBottom: '2.5vh'
     };

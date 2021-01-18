@@ -6,7 +6,6 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
-import { Document, Page } from 'react-pdf';
 
 import styles from '../pages/resume.module.css'
 
@@ -15,13 +14,6 @@ export default class Resume extends React.Component {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const shows = get(this, 'props.data.allContentfulShow.edges')
 
-    //pdf setup
-    // const [numPages, setNumPages] = useState(null);
-    // const [pageNumber, setPageNumber] = useState(1);
-   
-    function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages);
-    }
   
 
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -31,11 +23,10 @@ export default class Resume extends React.Component {
         <Navigation fixed="top" data={author.node} shows={shows}/>
         <div className={styles.resume}>
           <Helmet title={siteTitle} />
-          <Document
-            file={author.node.resume}
-            onLoadSuccess={onDocumentLoadSuccess}
-          >
-          </Document>
+          <object data={author.node.resume.file.url} type="application/pdf" width="700px" height="700px">
+             <embed src={author.node.resume.file.url}>
+             </embed>
+          </object>
         </div>
       </Layout>
     )

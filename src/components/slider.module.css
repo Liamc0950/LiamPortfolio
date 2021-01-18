@@ -30,6 +30,11 @@
     outline: none;
 }
 
+.button:focus{
+    outline: none;
+}
+
+
 .button:hover{
     background: rgba(0,0,0,0.16);
     cursor: pointer;

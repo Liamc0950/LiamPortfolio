@@ -20,8 +20,9 @@ function ImageSlide(props){
             <div className={styles.spacerTop}></div>
             <div className={styles.captions}>
                 <Link className={styles.captionLink} to={link}>
-                    <div className={styles.showTitle}>{props.title}</div>
-                    <div className={styles.showPosition}>{props.position}</div>
+                    <span className={styles.showTitle} className={styles.box}>{props.title}</span>
+                    <br/>
+                    <span className={styles.showPosition}className={styles.box}>{props.position}</span>
                 </Link>
             </div>
         </div>

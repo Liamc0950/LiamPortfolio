@@ -1,6 +1,14 @@
 import React,{useState} from 'react';
 import styles from './slider.module.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight
+} from '@fortawesome/free-solid-svg-icons'
+
+
+
 function Slider(props){
 
     let chevStyles = {
@@ -37,10 +45,10 @@ function Slider(props){
                 })
             }
             <button id="goLeft" className={styles.button} onClick={goLeft}>
-                <i className="fa fa-chevron-left" style={chevStyles}></i>
+                <FontAwesomeIcon icon={faChevronLeft} size="2x" color="rgba(255,255,255,0.5)"/>
             </button>
             <button id="goRight" className={styles.button} onClick={goRight}>
-                <i className="fa fa-chevron-right" style={chevStyles}></i>
+                <FontAwesomeIcon icon={faChevronRight} size="2x" color="rgba(255,255,255,0.5)"/>
             </button>
         </div>
     )
