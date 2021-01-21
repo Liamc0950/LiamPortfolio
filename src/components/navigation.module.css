@@ -21,23 +21,27 @@
 
 .navigationItem a {
   color: currentColor;
+  background-color:rgba(0,0,0,0.5);
 }
 
-.dropdown-item {
-  background-color:rgba(0,0,0,0.5);
-  color:white;
-}
-.dropdown-menu{
-  padding-top: 0%;
-  padding-bottom: 0%;
-  background-color:rgba(0,0,0,0.5);
-}
 
 .NavItem {
   color:white;
 }
 
-.Dropdown{
-  background-color:rgba(0,0,0,0.5);
+.dropdown{
+  background-color:rgba(0,0,0,0.5) !important;
   color:white;
+}
+
+.DropdownMenu {
+  background-color:rgba(0,0,0,0.5) !important;
+  color:white !important;
+}
+.DropdownMenu {
+  color:white !important;
+}
+
+a{
+  color: white;
 }

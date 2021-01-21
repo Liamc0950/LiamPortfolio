@@ -48,13 +48,13 @@ export default class Navigation extends React.Component {
                 <DropdownToggle nav caret>
                 LIGHTING DESIGN
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu right className={styles.DropdownMenu}> 
                   {this.props.shows.map(({ node }) => {
                   const link = "/shows/" + node.title;
                   console.log(link)
                   return (
                     <DropdownItem dropdown-item>
-                      <Link to={link}>{node.title}</Link>
+                      <Link to={link} style={{color: 'white'}}>{node.title}</Link>
                     </DropdownItem>
                   )
                   })}
