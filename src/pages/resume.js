@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import { UncontrolledCarousel } from 'reactstrap';
 import Navigation from '../components/navigation'
+import { Link } from 'gatsby';
 
 import styles from '../pages/resume.module.css'
 
@@ -27,6 +28,7 @@ export default class Resume extends React.Component {
              <embed src={author.node.resume.file.url}>
              </embed>
           </object>
+          <p>Download resume</p><Link to={author.node.resume.file.url}> here.</Link>
         </div>
       </Layout>
     )

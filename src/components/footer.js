@@ -10,6 +10,7 @@ export default class Footer extends React.Component {
         textAlign: 'center',
         fontSize: '0.7vw',
         paddingTop: '2.5vh',
+        marginTop: '5%',
         paddingBottom: '2.5vh'
     };
     

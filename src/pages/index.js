@@ -76,7 +76,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulShow(sort: { fields: [createdAt], order: DESC }) {
+    allContentfulShow(sort: { fields: [createdAt], order: ASC }) {
       edges{
         node {
           title
