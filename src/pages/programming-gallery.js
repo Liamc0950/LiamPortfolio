@@ -9,6 +9,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Row, Col } from 'react-bootstrap'
 
 
+
+
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -20,7 +22,7 @@ class RootIndex extends React.Component {
     //instantiate the first row as an array
     galleryRows[0] = [];
 
-    for(let i = 0, j = 0, k=0; i<shows.length; i++){
+    for(let i = 0, j = 0, k=0; i< shows.length; i++){
       //if the current galleryRow is not full
       if(j < colLimit){
         //add show[i] to the given galleryRow array
@@ -37,6 +39,7 @@ class RootIndex extends React.Component {
         galleryRows[k].push(shows[i])
       }
     }
+
 
     return (
       <Layout location={this.props.location}>
@@ -60,13 +63,13 @@ class RootIndex extends React.Component {
 export default RootIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query ProgrammingGalleryQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulShow(filter: {ld: {eq: true}}, sort: { fields: [sortOrder], order: ASC }) {
+    allContentfulShow(filter: {prog: {eq: true}}, sort: { fields: [sortOrder], order: ASC }) {
       edges{
         node {
           title

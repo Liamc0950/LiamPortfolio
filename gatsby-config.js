@@ -1,9 +1,40 @@
+//CONTENTFUL API KEY 
+if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
+  require('dotenv').config({ path: './.env.development'})
+}
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `LIAM CORLEY`,
+    description: `Theatrical Lighting Designer and Lighting Programmer.`,
+    author: `@Liam-Corley`,
+    siteUrl: `https://liam-corley.com/`,
+    menuLinks:[
+      {
+        name:'LIGHTING DESIGN',
+        link:'/'
+      },
+      {
+        name:'PROGRAMMING',
+        link:'/programming-gallery'
+      },
+      {
+        name:'PAPERWORK',
+        link:'/paperwork-gallery'
+      },
+      {
+        name:'RESUME',
+        link:'/resume'
+      },
+      {
+        name:'CONTACT',
+        link:'/contact'
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -30,6 +61,10 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

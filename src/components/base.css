@@ -1,0 +1,117 @@
+/* 
+LIAM CORLEY \\ 2020 
+Main css file
+
+*/
+html{
+  height: 90vh;
+}
+
+body{
+  background-color: rgba(33, 37, 42, 0.966);
+  font-family: 'Franklin Gothic Medium', sans-serif;
+}
+
+h1{
+  font-family: 'Franklin Gothic Medium', sans-serif;
+  color: aliceblue;
+}
+
+h3{
+  font-family: 'Franklin Gothic Medium', sans-serif;
+}
+h5{
+  font-family: 'Franklin Gothic Medium', sans-serif;
+}
+
+p{
+  font-family: 'Franklin Gothic Medium', sans-serif;
+  color: aliceblue;
+}
+
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.carousel-item > img { 
+  width: 100%; 
+}
+
+.carousel-img {
+  position: absolute;   
+  top: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
+  transform: translateY(-50%);
+}
+
+
+.no-gutters{
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.navbar {
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+a{
+  color:white;
+}
+
+.boxed {
+  border: 1px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.dark-boxed {
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  border: 1px;
+  background-color: rgba(0,0,0,0.9);
+  width: 100%;
+}
+
+.carousel {
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+
+.detailCarousel {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.show-title {
+  margin-top: auto;
+  padding-top: 5%;
+  color: white;
+}
+
+.show-info {
+  padding-bottom: 10%;
+  color: white;
+}

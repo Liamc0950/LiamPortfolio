@@ -8,6 +8,9 @@ import '../components/base.css';
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Row, Col } from 'react-bootstrap'
 
+import * as styles from './gallery.module.css'
+
+
 
 class RootIndex extends React.Component {
   render() {
@@ -60,7 +63,7 @@ class RootIndex extends React.Component {
 export default RootIndex
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query LightingGalleryQuery {
     site {
       siteMetadata {
         title

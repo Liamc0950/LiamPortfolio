@@ -1,0 +1,15 @@
+.resume{
+    height: 100%;
+    color: white;
+    text-align: center;
+    display: block;
+
+}
+
+.preview{
+    display: block;
+}
+
+.link{
+    margin-top: 5vh;
+}

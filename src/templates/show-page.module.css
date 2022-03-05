@@ -1,0 +1,13 @@
+.gallery{
+  height: 100%;
+  padding-top: 6;
+}
+.showInfoPane{
+  color: white;
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+  height: auto;
+}
