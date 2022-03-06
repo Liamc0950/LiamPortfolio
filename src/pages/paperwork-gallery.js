@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
@@ -25,7 +25,9 @@ class RootIndex extends React.Component {
                 <Row className='mt-5'>
                   <Col></Col>
                   <Col className='mx-auto col-5'>
-                    <GatsbyImage image={paperwork.node.coverImage.gatsbyImageData} alt={'alt text'}/>
+                    <Link to={paperwork.node.paperworkPdf.file.url}>
+                      <GatsbyImage image={paperwork.node.coverImage.gatsbyImageData} alt={'alt text'}/>
+                    </Link>
                     <h3 className='mt-2 text-light'>{paperwork.node.paperworkTitle}</h3>
                   </Col>
                   <Col></Col>
@@ -50,6 +52,11 @@ export const pageQuery = graphql`
       edges {
         node {
           paperworkTitle
+          paperworkPdf {
+            file {
+              url
+            }
+          }
           coverImage{
             gatsbyImageData(
               layout: CONSTRAINED, 

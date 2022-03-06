@@ -9,6 +9,7 @@ import { Row, Col } from 'react-bootstrap'
 
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
+import SimpleReactLightbox, {SRLWrapper} from 'simple-react-lightbox'
 
 import * as styles from '../templates/show-page.module.css'
 
@@ -46,15 +47,19 @@ class ShowPageTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
           <Helmet title={siteTitle} />
-          {galleryRows.map(row => (
-            <Row className="g-0">
-              {row.map(image=>(
-                <Col>
-                  <GatsbyImage image={image.gatsbyImageData} alt={'alt text'}/>
-                </Col>              
+          <SimpleReactLightbox>
+            <SRLWrapper>
+              {galleryRows.map(row => (
+              <Row className="g-0">
+                {row.map(image=>(
+                  <Col>
+                    <GatsbyImage image={image.gatsbyImageData} alt={show.title}/>
+                  </Col>              
+                ))}
+              </Row>
               ))}
-            </Row>
-          ))}
+            </SRLWrapper>
+          </SimpleReactLightbox>
           <div className={styles.showInfoPane}>
             <h1>{show.title}</h1>
             <div>
