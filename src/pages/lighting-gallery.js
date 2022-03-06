@@ -18,7 +18,14 @@ class RootIndex extends React.Component {
     const shows = get(this, 'props.data.allContentfulShow.edges')
     
     const galleryRows = [];
+
+    const width = window.innerWidth;
+
     const colLimit = 3;
+
+    if(width <= 400){
+      colLimit = 2;
+    }
 
     //instantiate the first row as an array
     galleryRows[0] = [];
@@ -44,7 +51,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-          {galleryRows.map(row => (
+          {/* {galleryRows.map(row => (
             <Row className="g-0">
               {row.map(show=>(
                 <Col>
@@ -54,7 +61,16 @@ class RootIndex extends React.Component {
                 </Col>              
               ))}
             </Row>
-          ))}
+          ))} */}
+          <Row>
+            {shows.map(show=> (
+              <Col lg={4} md = {4} sm = {6}>
+                <Link to={"/shows/" + show.node.title + "/"}>
+                  <GatsbyImage image={show.node.coverImage.gatsbyImageData} alt={'alt text'}/>
+                </Link>
+              </Col>
+            ))}
+          </Row>
       </Layout>
     )
   }
