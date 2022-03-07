@@ -20,6 +20,8 @@ class RootIndex extends React.Component {
 
     const galleryRows = [];
 
+    const colLimit = 3;
+
 
     //instantiate the first row as an array
     galleryRows[0] = [];
