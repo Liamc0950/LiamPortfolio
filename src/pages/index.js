@@ -18,16 +18,6 @@ class RootIndex extends React.Component {
     const shows = get(this, 'props.data.allContentfulShow.edges')
     const galleryRows = [];
 
-    var width = window.innerWidth;
-
-    console.log("WIDTH: " + width);
-
-    var colLimit = 3;
-
-    if(width <= 400){
-      colLimit = 2;
-    }
-
     //instantiate the first row as an array
     galleryRows[0] = [];
 
