@@ -19,10 +19,6 @@ module.exports = {
         link:'/'
       },
       {
-        name:'PROGRAMMING',
-        link:'/programming-gallery'
-      },
-      {
         name:'PAPERWORK',
         link:'/paperwork-gallery'
       },
