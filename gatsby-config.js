@@ -42,7 +42,7 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
