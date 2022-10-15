@@ -42,6 +42,7 @@ h5{
 h6{
   font-family: 'montserrat', sans-serif;
   font-weight: 100;
+  font-size: 1vh;
 }
 
 p{
@@ -164,4 +165,8 @@ a{
 .show-info {
   padding-bottom: 10%;
   color: white;
+}
+
+.about-module--contact--XZEqq{
+  padding-top: 15vh;
 }

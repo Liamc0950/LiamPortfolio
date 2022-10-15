@@ -3,6 +3,9 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { Row, Col } from 'react-bootstrap'
+import { GatsbyImage } from "gatsby-plugin-image"
 
 
 import * as styles from '../pages/about.module.css'
@@ -18,7 +21,21 @@ class Contact extends React.Component {
       <Layout location={this.props.location}>
         <div className={styles.contact}>
           <Helmet title={siteTitle} />
-          <div>Contact me at {author.node.email}</div>
+          <div className='bio'>
+            <Row>
+              <Col lg={3}></Col>
+              <Col lg={3}>
+                <div style={{}}>
+                  <GatsbyImage image={author.node.image.gatsbyImageData} alt="Headshot image of Liam"/>
+                </div>
+              </Col>
+              <Col lg={3}style={{paddingTop: "5%", paddingBottom: "5%"}}>
+                <div><p>{renderRichText(author.node.bio)}</p></div>
+                <div>Contact me at {author.node.email}</div>
+              </Col>
+              <Col lg={3}></Col>
+            </Row>
+          </div>
         </div>
       </Layout>
     )
@@ -44,6 +61,18 @@ export const pageQuery = graphql`
             raw
           }
           title
+          image{
+            gatsbyImageData(
+              layout: CONSTRAINED
+              width: 200
+              cornerRadius: 10
+              height: 300
+              placeholder: BLURRED
+              quality: 100
+              resizingBehavior: FILL
+            )
+            }
+    
           email
         }
       }
