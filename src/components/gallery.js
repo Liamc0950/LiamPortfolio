@@ -31,19 +31,7 @@ function generateRows(shows){
 
 }
 
-const Gallery = ({ shows }) => {
-  
-    return (
-      // {generateRows(shows).map(row => (
-      //   <Row className="g-0">
-      //     {row.map(show=>(
-      //       <Col>
-      //         <GatsbyImage image={show.node.coverImage.gatsbyImageData} alt={'alt text'}/>
-      //       </Col>              
-      //     ))}
-      //   </Row>
-      // ))})
-  }
+const Gallery = ({ shows }) => {}
   
   Gallery.propTypes = {
     shows: PropTypes.node.isRequired,

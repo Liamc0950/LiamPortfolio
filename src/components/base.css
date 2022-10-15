@@ -8,28 +8,78 @@ html{
 }
 
 body{
-  background-color: rgba(33, 37, 42, 0.966);
-  font-family: 'Franklin Gothic Medium', sans-serif;
+  /* background-color: rgba(33, 37, 42, 0.966); */
+  background-color: black;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
+  /* overflow: hidden; */
 }
 
-h1{
-  font-family: 'Franklin Gothic Medium', sans-serif;
+h1 {  
+  font-family: 'montserrat', sans-serif;
+  font-size: 36px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 100; 
+  line-height: 26.4px;
   color: aliceblue;
+}
+h2{
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
 }
 
 h3{
-  font-family: 'Franklin Gothic Medium', sans-serif;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
 }
+
 h5{
-  font-family: 'Franklin Gothic Medium', sans-serif;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
+}
+
+h6{
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
 }
 
 p{
-  font-family: 'Franklin Gothic Medium', sans-serif;
-  color: aliceblue;
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100;
 }
 
+div{
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100; 
+}
 
+.footer{
+  font-family: 'montserrat', sans-serif;
+  font-weight: 100; 
+}
+
+/* .content {
+  position: absolute;
+  top: 50px;
+  bottom: 30px;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+} */
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  width: 100%;
+  /* padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem); */
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: var(--bs-gutter-x,.75rem);
+  margin-left: var(--bs-gutter-x,.75rem);
+  padding-top: var(--bs-gutter-x,1rem);
+  padding-bottom: var(--bs-gutter-x,1rem);
+
+}
 .centered {
   margin: 0 auto;
   text-align: center;

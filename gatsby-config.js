@@ -27,12 +27,22 @@ module.exports = {
         link:'/resume'
       },
       {
-        name:'CONTACT',
-        link:'/contact'
+        name:'ABOUT',
+        link:'/about'
       }
     ]
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `limelight`,
+          'montserrat'
+        ],
+        display: 'swap'
+      }
+    }
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {

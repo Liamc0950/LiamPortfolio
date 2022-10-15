@@ -5,14 +5,15 @@ export default class Footer extends React.Component {
     render() {
     var style = {
         color: 'white',
+        backgroundColor: 'black',
         textAlign: 'center',
-        fontSize: '1vw',
+        fontSize: '0.75vw',
         paddingTop: '2vh',
-        height: '65px',
-        paddingBottom: '1.5vh',    
+        height: '10%',
+        paddingBottom: '2vh',
     };
     
-    return <div style={style}>
+    return <div style={style} className="footer">
         © {new Date().getFullYear()}, Designed and built by Liam Corley
       </div>;
     }

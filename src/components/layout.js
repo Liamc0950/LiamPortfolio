@@ -33,7 +33,7 @@
       <Header menuLinks={data.site.siteMetadata.menuLinks} 
               siteTitle={data.site.siteMetadata.title} 
       />
-      <main>{children}</main>
+      <main className="content">{children}</main>
       <Footer></Footer>
     </>
    )

@@ -4,13 +4,12 @@ import { Link } from "gatsby"
 
 import { Container, Navbar, Nav } from "react-bootstrap"
 
-import * as styles from './header.module.css'
 
 const Header = ({ siteTitle, menuLinks }) => (
-  <header className="bg-dark">
+  <header>
     <Container>
-      <Navbar expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">{siteTitle}</Navbar.Brand>
+      <Navbar expand="lg" variant="dark" style={{backgroundColor: 'black', padding: '1%'}} className="fixed-top">
+        <Navbar.Brand href="/"><h1>{siteTitle}</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive"/>
         <Navbar.Collapse id="navbarResponsive">
           <Nav as="ul">

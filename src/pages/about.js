@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 
 
-import * as styles from '../pages/contact.module.css'
+import * as styles from '../pages/about.module.css'
 
 class Contact extends React.Component {
   render() {
@@ -40,8 +40,8 @@ export const pageQuery = graphql`
       edges {
         node {
           name
-          shortBio {
-            shortBio
+          bio {
+            raw
           }
           title
           email

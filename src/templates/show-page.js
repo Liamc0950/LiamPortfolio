@@ -13,6 +13,7 @@ import SimpleReactLightbox, {SRLWrapper} from 'simple-react-lightbox'
 
 import * as styles from '../templates/show-page.module.css'
 
+
 class ShowPageTemplate extends React.Component {
   render() {
     const show = this.props.data.contentfulShow
@@ -47,28 +48,37 @@ class ShowPageTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
           <Helmet title={siteTitle} />
-          <SimpleReactLightbox>
-            <SRLWrapper>
-              {galleryRows.map(row => (
-              <Row className="g-0">
-                {row.map(image=>(
-                  <Col>
-                    <GatsbyImage image={image.gatsbyImageData} alt={show.title}/>
-                  </Col>              
-                ))}
-              </Row>
-              ))}
-            </SRLWrapper>
-          </SimpleReactLightbox>
-          <div className={styles.showInfoPane}>
-            <h1>{show.title}</h1>
-            <div>
-              {show.showCredits.map(num => (
-                <div>{num}</div>
-              ))}
+          <div>
+            <div className='row'>
+              <div class="col-4">
+                <div className={styles.showInfoPane}>
+                  <h2>{show.title}</h2>
+                  <div>
+                    {show.showCredits.map(num => (
+                      <div>{num}</div>
+                    ))}
+                  </div>
+                  <div className='mt-4'><p>{renderRichText(show.richDescription)}</p></div>
+                </div>
+              </div>
+              <div class="col-8">
+                <SimpleReactLightbox>
+                  <SRLWrapper>
+                    {galleryRows.map(row => (
+                    <Row className="g-0">
+                      {row.map(image=>(
+                        <Col>
+                          <GatsbyImage image={image.gatsbyImageData} alt={show.title}/>
+                        </Col>              
+                      ))}
+                    </Row>
+                    ))}
+                  </SRLWrapper>
+                </SimpleReactLightbox>
+              </div>
             </div>
-            <div className='mt-4'><p>{renderRichText(show.richDescription)}</p></div>
           </div>
+
       </Layout>
     )
   }

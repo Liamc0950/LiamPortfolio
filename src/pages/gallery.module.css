@@ -25,4 +25,6 @@
 
 .title{
     text-transform: uppercase;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 100;
 }
