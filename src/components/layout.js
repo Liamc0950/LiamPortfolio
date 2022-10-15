@@ -13,6 +13,7 @@
  import Footer from "./footer"
  import 'bootstrap/dist/css/bootstrap.min.css';
  
+
  const Layout = ({ children }) => {
    const data = useStaticQuery(graphql`
      query SiteTitleQuery {

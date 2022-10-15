@@ -18,10 +18,10 @@ module.exports = {
         name:'LIGHTING DESIGN',
         link:'/'
       },
-      {
-        name:'PAPERWORK',
-        link:'/paperwork-gallery'
-      },
+      // {
+      //   name:'PAPERWORK',
+      //   link:'/paperwork-gallery'
+      // },
       {
         name:'RESUME',
         link:'/resume'
