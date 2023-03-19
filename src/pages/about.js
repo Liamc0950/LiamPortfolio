@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Row, Col } from 'react-bootstrap'
 import { GatsbyImage } from "gatsby-plugin-image"
+import { FaFacebook, FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 
 
 import * as styles from '../pages/about.module.css'
@@ -31,6 +32,12 @@ class Contact extends React.Component {
               </Col>
               <Col lg={3}style={{paddingTop: "5%", paddingBottom: "5%"}}>
                 <div><p>{renderRichText(author.node.bio)}</p></div>
+                <div>
+                  <FaFacebook className="mr-10"/>{}
+                  <FaInstagram className="mr-10"/>{}
+                  <FaGithub className="mr-10"/>{}
+                  <FaYoutube className="mr-10"/>{}
+                </div>
                 <div>Contact me at {author.node.email}</div>
               </Col>
               <Col lg={3}></Col>
@@ -68,7 +75,7 @@ export const pageQuery = graphql`
               cornerRadius: 10
               height: 300
               placeholder: BLURRED
-              quality: 100
+              quality: 50
               resizingBehavior: FILL
             )
             }

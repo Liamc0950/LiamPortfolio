@@ -50,7 +50,7 @@ class ShowPageTemplate extends React.Component {
           <Helmet title={siteTitle} />
           <div>
             <div className='row'>
-              <div class="col-4">
+              <div class="col-lg-4">
                 <div className={styles.showInfoPane}>
                   <h2>{show.title}</h2>
                   <div>
@@ -61,7 +61,7 @@ class ShowPageTemplate extends React.Component {
                   <div className='mt-4'><p>{renderRichText(show.richDescription)}</p></div>
                 </div>
               </div>
-              <div class="col-8">
+              <div class="col-lg-8">
                 <SimpleReactLightbox>
                   <SRLWrapper>
                     {galleryRows.map(row => (
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
         gatsbyImageData(
           layout: CONSTRAINED, 
           placeholder: BLURRED,
-          quality: 100,
+          quality: 50,
         )
       }
     }

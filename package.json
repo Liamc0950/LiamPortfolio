@@ -28,6 +28,7 @@
     "react-dom": "^17.0.1",
     "react-grid-gallery": "^0.5.5",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.8.0",
     "reactstrap": "^9.0.1",
     "simple-react-lightbox": "^3.6.9-0",
     "swup": "^2.0.19"
