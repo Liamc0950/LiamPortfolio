@@ -14,7 +14,6 @@ import * as styles from '../pages/about.module.css'
 class Contact extends React.Component {
   render() {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const shows = get(this, 'props.data.allContentfulShow.edges')
 
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
@@ -33,14 +32,41 @@ class Contact extends React.Component {
               <Col lg={3}style={{paddingTop: "5%", paddingBottom: "5%"}}>
                 <div><p>{renderRichText(author.node.bio)}</p></div>
                 <div>
-                  <FaFacebook className="mr-10"/>{}
-                  <FaInstagram className="mr-10"/>{}
-                  <FaGithub className="mr-10"/>{}
-                  <FaYoutube className="mr-10"/>{}
+                  <a href={author.node.facebook} target="_blank">
+                    <FaFacebook size="1.5em" style={{ margin: '5px' }}/>{}
+                  </a>
+                  <a href={author.node.instagram} target="_blank">
+                    <FaInstagram size="1.5em" style={{ margin: '5px' }}/>{}
+                  </a>
+                  <a href={author.node.github} target="_blank">
+                    <FaGithub size="1.5em" style={{ margin: '5px' }}/>{}
+                  </a>
                 </div>
-                <div>Contact me at {author.node.email}</div>
+                <div style={{ paddingTop: '15px' }}>Contact me at {author.node.email}</div>
               </Col>
               <Col lg={3}></Col>
+            </Row>
+            <Row>
+              <div className='projects'>
+                <h4><b>UPCOMING PROJECTS</b></h4>
+                <hr></hr>
+                {author.node.upcomingProjects.map(project=>(
+                  <div>
+                    <h5>{project.title}</h5>
+                    <h6>{project.venue} / {project.producer}</h6>
+                    <i><p>{project.role}</p></i>
+                  </div>
+                ))}
+                <h4><b>RECENT PROJECTS</b></h4>
+                <hr></hr>
+                {author.node.recentProjects.map(project=>(
+                  <div>
+                    <h5>{project.title}</h5>
+                    <h6>{project.venue} / {project.producer}</h6>
+                    <i><p>{project.role}</p></i>
+                  </div>
+                ))}
+              </div>
             </Row>
           </div>
         </div>
@@ -67,6 +93,9 @@ export const pageQuery = graphql`
           bio {
             raw
           }
+          facebook
+          github
+          instagram
           title
           image{
             gatsbyImageData(
@@ -78,10 +107,21 @@ export const pageQuery = graphql`
               quality: 50
               resizingBehavior: FILL
             )
-            }
-    
+          }
           email
-        }
+          recentProjects {
+            title
+            venue
+            producer
+            role
+          }
+          upcomingProjects {
+            title
+            venue
+            producer
+            role
+          }
+          }
       }
     }
   }
