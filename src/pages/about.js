@@ -21,7 +21,6 @@ class Contact extends React.Component {
       <Layout location={this.props.location}>
         <div className={styles.contact}>
           <Helmet title={siteTitle} />
-          <div className='bio'>
             <Row>
               <Col lg={3}></Col>
               <Col lg={3}>
@@ -68,7 +67,6 @@ class Contact extends React.Component {
                 ))}
               </div>
             </Row>
-          </div>
         </div>
       </Layout>
     )
