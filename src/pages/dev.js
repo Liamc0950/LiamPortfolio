@@ -6,7 +6,7 @@ import Banner from '../components/Banner'
 import DevLanding from '../components/DevLanding'
 import DevHeader from '../components/DevHeader'
 import Projects from '../components/Projects'
-import Footer from '../components/Footer'
+import Footer from '../components/footer'
 
 
 import { renderRichText } from "gatsby-source-contentful/rich-text"
