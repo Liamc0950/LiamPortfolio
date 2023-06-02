@@ -28,13 +28,7 @@ export default class Resume extends React.Component {
       <Layout location={this.props.location}>
         <div className={styles.resume}>
           <Helmet title={siteTitle} />
-          {/* PDF EMBED - Replaced with image preview */}
-          {/*<object data={author.node.resume.file.url} type="application/pdf" width="700px" height="700px">
-             <embed src={author.node.resume.file.url}>
-             </embed>
-          </object> */}
-          {/* <img src={author.node.resumeImage.file.url} style={style}></img> */}
-          <GatsbyImage image={author.node.resumeImage.gatsbyImageData} className='mt-5'></GatsbyImage>
+          <GatsbyImage image={author.node.resumeImage.gatsbyImageData} className='resume'></GatsbyImage>
           <div className={styles.preview}>
             <div style= {style}></div>
             <div className={styles.link}><p>Download resume</p><Link to={author.node.resume.file.url}> here.</Link></div>
