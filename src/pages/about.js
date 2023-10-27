@@ -108,12 +108,15 @@ export const pageQuery = graphql`
           }
           email
           recentProjects {
-            title
-            venue
-            producer
-            role
+            ... on ContentfulProjectShort {
+              id
+              title
+              venue
+              producer
+              role
+            }
           }
-          upcomingProjects {
+            upcomingProjects {
             title
             venue
             producer

@@ -63,6 +63,7 @@ export const pageQuery = graphql`
               layout: CONSTRAINED, 
               placeholder: BLURRED,
               quality: 90,
+              aspectRatio: 1.33,
             )
           }
         }
