@@ -1,53 +1,37 @@
-const _ = require(`lodash`)
-const Promise = require(`bluebird`)
-const path = require(`path`)
-const slash = require(`slash`)
-// const slugify = require(`slugify`)
-
-// const slugifyOptions = {
-//    replacement: '-',
-//    remove: /[$*_+~.()'"!\-:@]/g,
-//    lower: true
-//  }
-
-
-exports.createPages = ({ graphql, actions }) => {
-   const { createPage } = actions
-   return new Promise((resolve, reject) => {
-     graphql(
-      `
-      {
-        allContentfulShow {
-          edges {
-            node {
-              title
-              id
-            }
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  
+  console.log("gatsby-node.js is running!")
+  
+  const result = await graphql(`
+    {
+      allContentfulShow {
+        edges {
+          node {
+            title
+            id
           }
         }
       }
-      `
-    )
-       .then(result => {
-         if (result.errors) {
-           reject(result.errors)
-         }
- 
-         // Create Sub Pages
-         const pageTemplate = path.resolve(`./src/templates/show-page.js`)
-         _.each(result.data.allContentfulShow.edges, edge => {
-
-           // Here's the beef
-           createPage({
-             path: `/shows/${edge.node.title}/`,
-             component: slash(pageTemplate),
-             context: {
-               id: edge.node.id
-             },
-           })
-
-         })
-         resolve()
-       })
-   })
- }
+    }
+  `)
+  
+  if (result.errors) {
+    console.error("GraphQL errors:", result.errors)
+    return
+  }
+  
+  console.log("Found shows:", result.data.allContentfulShow.edges.length)
+  
+  result.data.allContentfulShow.edges.forEach(({ node }) => {
+    console.log(`Creating page for: ${node.title}`)
+    
+    createPage({
+      path: `/shows/${node.title}/`,
+      component: require.resolve(`./src/templates/show-page.js`),
+      context: {
+        id: node.id,
+      },
+    })
+  })
+}

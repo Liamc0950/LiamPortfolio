@@ -18,59 +18,87 @@ class Contact extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location}>
-        <div className={styles.contact}>
-          <Helmet title={siteTitle} />
-            <Row>
-              <Col lg={3}></Col>
-              <Col lg={3}>
-                <div style={{}}>
-                  <GatsbyImage image={author.node.image.gatsbyImageData} alt="Headshot image of Liam"/>
-                </div>
-              </Col>
-              <Col lg={3}style={{paddingTop: "5%", paddingBottom: "5%"}}>
-                <div><p>{renderRichText(author.node.bio)}</p></div>
-                <div>
-                  <a href={author.node.facebook} target="_blank">
-                    <FaFacebook size="1.5em" style={{ margin: '5px' }}/>{}
-                  </a>
-                  <a href={author.node.instagram} target="_blank">
-                    <FaInstagram size="1.5em" style={{ margin: '5px' }}/>{}
-                  </a>
-                  <a href={author.node.github} target="_blank">
-                    <FaGithub size="1.5em" style={{ margin: '5px' }}/>{}
-                  </a>
-                </div>
-                <div style={{ paddingTop: '15px' }}>Contact me at {author.node.email}</div>
-              </Col>
-              <Col lg={3}></Col>
-            </Row>
-            <Row>
-              <div className='projects'>
-                <h4><b>UPCOMING PROJECTS</b></h4>
-                <hr></hr>
-                {author.node.upcomingProjects.map(project=>(
-                  <div>
-                    <h5>{project.title}</h5>
-                    <h6>{project.venue} / {project.producer}</h6>
-                    <i><p>{project.role}</p></i>
-                  </div>
-                ))}
-                <h4><b>RECENT PROJECTS</b></h4>
-                <hr></hr>
-                {author.node.recentProjects.map(project=>(
-                  <div>
-                    <h5>{project.title}</h5>
-                    <h6>{project.venue} / {project.producer}</h6>
-                    <i><p>{project.role}</p></i>
-                  </div>
-                ))}
-              </div>
-            </Row>
+    <Layout location={this.props.location}>
+      <div className={styles.contact}>
+        <Helmet title={siteTitle} />
+        
+        {/* Center everything horizontally */}
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'flex-start',
+          gap: '30px',
+          marginBottom: '20px'
+        }}>
+          {/* Image */}
+          <div>
+            <GatsbyImage 
+              image={author.node.image.gatsbyImageData} 
+              alt="Headshot image of Liam"
+            />
+          </div>
+          
+          {/* Bio and contact info */}
+          <div style={{ maxWidth: '400px' }}>
+            <div style={{ marginBottom: 0 }}>{renderRichText(author.node.bio)}</div> 
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              gap: '10px', 
+              paddingBottom: '0px' 
+            }}>
+              <img 
+                src="/images/ia_bug.png" 
+                alt="IASTSE Bug Logo"
+                style={{ width: '80px', height: 'auto' }}
+              />
+              <span>Proud member IATSE ACT</span>
+            </div>
+            
+            <div style={{ textAlign: 'center' }}>
+              <a href={author.node.facebook} target="_blank">
+                <FaFacebook size="1.5em" style={{ margin: '5px' }}/>
+              </a>
+              <a href={author.node.instagram} target="_blank">
+                <FaInstagram size="1.5em" style={{ margin: '5px' }}/>
+              </a>
+              <a href={author.node.github} target="_blank">
+                <FaGithub size="1.5em" style={{ margin: '5px' }}/>
+              </a>
+            </div>
+            
+            <div style={{ paddingTop: '15px', textAlign: 'center' }}>
+              Contact me at {author.node.email}
+            </div>
+          </div>
         </div>
-      </Layout>
-    )
-  }
+
+        {/* Projects section */}
+        <div className='projects'>
+          <h4><b>UPCOMING PROJECTS</b></h4>
+          <hr/>
+          {author.node.upcomingProjects.map((project, index) => (
+            <div key={index}>
+              <h5>{project.title}</h5>
+              <h6>{project.venue} / {project.producer}</h6>
+              <i><p>{project.role}</p></i>
+            </div>
+          ))}
+          
+          <h4><b>RECENT PROJECTS</b></h4>
+          <hr/>
+          {author.node.recentProjects.map((project, index) => (
+            <div key={index}>
+              <h5>{project.title}</h5>
+              <h6>{project.venue} / {project.producer}</h6>
+              <i><p>{project.role}</p></i>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Layout> 
+  )}
 }
 
 export default Contact

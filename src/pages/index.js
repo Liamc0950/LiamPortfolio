@@ -1,5 +1,8 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+
+import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
+
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
@@ -19,6 +22,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <div style={{ paddingTop: '80px' }}> {/* Adjust based on navbar height */}
         <Helmet title={siteTitle} />
             <Row className="g-0">
               {shows.map(show=>(
@@ -36,6 +40,7 @@ class RootIndex extends React.Component {
                 </Col>              
               ))}
             </Row>
+        </div>
       </Layout>
     )
 

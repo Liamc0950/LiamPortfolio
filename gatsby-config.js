@@ -23,6 +23,10 @@ module.exports = {
       //   link:'/paperwork-gallery'
       // },
       {
+        name:'PROGRAMMING',
+        link:'/programming-gallery'
+      },
+      {
         name:'RESUME',
         link:'/resume'
       },

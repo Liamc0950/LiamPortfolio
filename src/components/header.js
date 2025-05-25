@@ -22,14 +22,6 @@ const Header = ({ siteTitle, menuLinks }) => (
                   </Nav.Item>
             ))}
           </Nav>
-          <Nav as="ul" className="ms-auto">
-                  <Nav.Item as="li">
-                    <Link to={"/dev"} className="nav-link" activeClassName="active">
-                      CODE <FaArrowRight size="1em" style={{ marginBottom: '5px' }}/>{}
-                    </Link>
-                  </Nav.Item>
-          </Nav>
-
         </Navbar.Collapse>
       </Navbar>
     </Container>

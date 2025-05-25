@@ -1,0 +1,93 @@
+/* Nebulous Grid Layout */
+.nebulous-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    margin: 10%;
+    align-items: start;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex; /* Changed from block to flex */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-size: 1.0rem;
+    margin: 0 0 5px 0;
+}
+
+.overlay h4 {
+    font-size: 0.8rem;
+    margin: 0 0 5px 0;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+.image-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.nebulous-grid h2 {
+    grid-column: 1 / -1; /* Span all columns */
+    text-align: center;
+    margin-bottom: 40px;
+    color: whitesmoke;
+    TEXT-TRANSFORM: UPPERCASE;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nebulous-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+}
