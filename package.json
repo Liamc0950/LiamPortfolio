@@ -33,7 +33,8 @@
     "yet-another-react-lightbox": "^3.23.2"
   },
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "webpack": "^5.99.9"
   },
   "keywords": [
     "gatsby"
